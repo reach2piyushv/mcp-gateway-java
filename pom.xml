@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- Pinned to a known-good 3.3.x release as of early 2026. Check for a
+             newer 3.3.x/3.4.x patch when you build - `mvn versions:display-parent-updates`
+             (versions-maven-plugin) or just check https://spring.io/projects/spring-boot -->
+        <version>3.3.4</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.piyush</groupId>
+    <artifactId>mcp-gateway-java</artifactId>
+    <version>1.0.0</version>
+    <name>mcp-gateway-java</name>
+    <description>A lightweight control-plane gateway for the Model Context Protocol (MCP): auth, per-client scoped routing, rate limiting, aggregated discovery, and audit logging.</description>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- The one real dependency: web MVC (embedded Tomcat) + Jackson, transitively.
+             Everything else (rate limiting, caching, audit logging, HTTP client,
+             trace-id generation) is hand-rolled against the JDK on purpose, to
+             keep the dependency surface minimal and every piece inspectable. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

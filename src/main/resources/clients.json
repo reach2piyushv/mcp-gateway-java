@@ -1,0 +1,25 @@
+{
+  "clients": [
+    {
+      "id": "agent-support-bot",
+      "apiKey": "sk-support-7f2a9c",
+      "description": "Customer support agent - read-only customer + weather tools",
+      "scopes": ["customer-tools", "weather-tools"],
+      "rateLimit": { "capacity": 5, "refillPerSec": 1 }
+    },
+    {
+      "id": "agent-fraud-review",
+      "apiKey": "sk-fraud-4d81be",
+      "description": "Fraud review agent - customer tools only, tighter burst limit",
+      "scopes": ["customer-tools"],
+      "rateLimit": { "capacity": 2, "refillPerSec": 0.5 }
+    },
+    {
+      "id": "agent-unscoped-demo",
+      "apiKey": "sk-demo-000000",
+      "description": "Demo client with no granted scopes - used to show authz denial",
+      "scopes": [],
+      "rateLimit": { "capacity": 5, "refillPerSec": 1 }
+    }
+  ]
+}

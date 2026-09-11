@@ -1,0 +1,16 @@
+{
+  "servers": [
+    {
+      "name": "weather-tools",
+      "url": "http://localhost:4001",
+      "description": "Weather lookup MCP server (mock external API)",
+      "listCacheTtlMs": 30000
+    },
+    {
+      "name": "customer-tools",
+      "url": "http://localhost:4002",
+      "description": "Customer/risk lookup MCP server (mock internal fraud & CRM data)",
+      "listCacheTtlMs": 30000
+    }
+  ]
+}
